@@ -7,7 +7,7 @@ import { ClimbingBoxLoader } from "react-spinners";
 
 const ArticlesList = () => {
   const [articleItems, setArticleItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
@@ -21,13 +21,17 @@ const ArticlesList = () => {
   }, []);
 
   if (isLoading) {
-    return <ClimbingBoxLoader className="spinner"/>;
+    return <ClimbingBoxLoader className="spinner" />;
   } else {
     return (
       <section className="articles">
         {articleItems.map((article) => {
           return (
-            <Link className="link" key={article.article_id}>
+            <Link
+              className="link"
+              key={article.article_id}
+              to={`/article/${article.article_id}`}
+            >
               <ArticleCard data={article} />
             </Link>
           );

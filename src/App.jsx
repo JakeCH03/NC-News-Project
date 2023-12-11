@@ -5,7 +5,7 @@ import Header from "./Components/Header/Header";
 import { Navigate, Route, Router, Routes } from "react-router-dom";
 import ArticlesList from "./Components/Articles/ArticlesList";
 import Loading from "./Components/Loading";
-import DisplaySingleArticle from "./Components/Single Article/DisplaySingleArticle";
+import DisplaySingleArticle from "./Components/Single Article/Article/DisplaySingleArticle";
 
 function App() {
   return (

@@ -1,0 +1,19 @@
+.spinner {
+  display: relative !important;
+}
+
+ul{
+    list-style-type: none;
+    justify-content: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.comment{
+    border: 2px solid black;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 3px 1px black;
+    background-color: rgb(59, 59, 59);
+    padding: 5px;
+}

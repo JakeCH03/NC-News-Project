@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ClimbingBoxLoader } from "react-spinners";
-import getSingleArticle from "../../Utils/getSingleArticle";
+import getSingleArticle from "../../../Utils/getSingleArticle";
 import "./SingleArticleCard.css";
 import { Link } from "react-router-dom";
 
@@ -10,15 +10,14 @@ const SingleArticleCard = ({ id }) => {
 
   useEffect(() => {
     setIsLoading(true);
-    getSingleArticle(id)
-      .then((res) => {
-        setArticleData(res.data.article);
-        setIsLoading(false);
-      })
+    getSingleArticle(id).then((res) => {
+      setArticleData(res.data.article);
+      setIsLoading(false);
+    });
   }, []);
 
   if (isLoading) {
-    return <ClimbingBoxLoader />;
+    return <ClimbingBoxLoader className="spinner" />;
   }
   return (
     <section className="article">

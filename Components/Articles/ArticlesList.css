@@ -1,0 +1,11 @@
+.articles {
+  height: auto;
+  max-width: 650px;
+  margin: auto;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}

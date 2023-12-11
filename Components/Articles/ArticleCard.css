@@ -1,0 +1,15 @@
+.article-element {
+  border: 2px solid black;
+  width: auto;
+  margin-top: 5px;
+  padding: 3px;
+}
+
+.title {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.article-element:hover {
+ transform: scale(1.05)
+}

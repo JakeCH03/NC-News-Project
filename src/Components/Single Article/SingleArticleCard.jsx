@@ -15,9 +15,6 @@ const SingleArticleCard = ({ id }) => {
         setArticleData(res.data.article);
         setIsLoading(false);
       })
-      .then(() => {
-        console.log(articleData);
-      });
   }, []);
 
   if (isLoading) {

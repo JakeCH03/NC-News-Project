@@ -9,3 +9,9 @@
   color: white;
   font-weight: bold;
 }
+
+.spinner{
+  margin: auto;
+  padding-top: 500px;
+  transform: scale(1.5)
+}

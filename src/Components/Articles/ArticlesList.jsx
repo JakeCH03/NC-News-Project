@@ -1,29 +1,40 @@
 import { useState, useEffect } from "react";
-import getAllArticles from "../../../Utils/getAllArticles";
+import getAllArticles from "../../Utils/getAllArticles";
 import "./ArticlesList.css";
 import ArticleCard from "./ArticlesCard";
 import { Link } from "react-router-dom";
+import { ClimbingBoxLoader } from "react-spinners";
 
 const ArticlesList = () => {
   const [articleItems, setArticleItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    getAllArticles().then((res) => {
-      setArticleItems(res.data.articles);
-    });
-  });
+    setIsLoading(true);
+    getAllArticles()
+      .then((res) => {
+        setArticleItems(res.data.articles);
+      })
+      .then(() => {
+        setIsLoading(false);
+      });
+  }, []);
 
-  return (
-    <section className="articles">
-      {articleItems.map((article) => {
-        return (
-          <Link className="link">
-            <ArticleCard data={article} key={article.article_id} />
-          </Link>
-        );
-      })}
-    </section>
-  );
+  if (isLoading) {
+    return <ClimbingBoxLoader className="spinner"/>;
+  } else {
+    return (
+      <section className="articles">
+        {articleItems.map((article) => {
+          return (
+            <Link className="link" key={article.article_id}>
+              <ArticleCard data={article} />
+            </Link>
+          );
+        })}
+      </section>
+    );
+  }
 };
 
 export default ArticlesList;

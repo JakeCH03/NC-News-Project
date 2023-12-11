@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import "./App.css";
-import Header from "../Components/Header/Header";
+import Header from "./Components/Header/Header";
 import { Navigate, Route, Router, Routes } from "react-router-dom";
-import ArticlesList from "../Components/Articles/ArticlesList";
+import ArticlesList from "./Components/Articles/ArticlesList";
 
 function App() {
   return (

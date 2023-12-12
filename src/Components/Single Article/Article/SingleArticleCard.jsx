@@ -3,6 +3,7 @@ import { ClimbingBoxLoader } from "react-spinners";
 import getSingleArticle from "../../../Utils/getSingleArticle";
 import "./SingleArticleCard.css";
 import { Link } from "react-router-dom";
+import DisplayVotes from "./DisplayVotes";
 
 const SingleArticleCard = ({ id }) => {
   const [articleData, setArticleData] = useState([]);
@@ -32,7 +33,7 @@ const SingleArticleCard = ({ id }) => {
       <h1 className="title">{articleData.title}</h1>
       <img src={articleData.article_img_url} className="image" />
       <div className="body">{articleData.body}</div>
-      <div className="votes">votes: {articleData.votes}</div>
+      <DisplayVotes votes={articleData.votes} id={articleData.article_id} />
     </section>
   );
 };

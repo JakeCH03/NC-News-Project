@@ -60,6 +60,11 @@
 .upvote {
   margin-left: 10px;
   margin-right: 2px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.downvote{
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .upvote:hover,

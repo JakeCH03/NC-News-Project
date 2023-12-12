@@ -6,7 +6,7 @@
   color: black;
   text-align: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 

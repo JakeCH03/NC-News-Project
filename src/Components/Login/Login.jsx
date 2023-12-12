@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import UserCard from "./UserCard";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { ClimbingBoxLoader } from "react-spinners";
 
 const Login = () => {
   const [userList, setUserList] = useState([]);
@@ -12,32 +13,38 @@ const Login = () => {
   let userContext = useContext(UserContext);
 
   useEffect(() => {
-    getAllUsers().then((res) => setUserList(res.data.users));
+    setIsLoading(true);
+    getAllUsers().then((res) => {
+      setUserList(res.data.users);
+      setIsLoading(false);
+    });
   }, []);
 
-  if (userList.length) {
-    return (
-      <div className="users-container">
-        <ul className="user-list">
-          {userList.map((user) => {
-            return (
-              <li
-                key={user.username}
-                onClick={() => {
-                  userContext.setUser(user.username);
-                  console.log(userContext.user);
-                }}
-              >
-                <Link to={"/home"} className="link">
-                  <UserCard user={user} />
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    );
+  if (isLoading) {
+    return <ClimbingBoxLoader className="spinner" />;
   }
+
+  return (
+    <div className="users-container">
+      <ul className="user-list">
+        {userList.map((user) => {
+          return (
+            <li
+              key={user.username}
+              onClick={() => {
+                userContext.setUser(user.username);
+                console.log(userContext.user);
+              }}
+            >
+              <Link to={"/home"} className="link">
+                <UserCard user={user} />
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 };
 
 export default Login;

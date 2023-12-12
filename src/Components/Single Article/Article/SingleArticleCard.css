@@ -52,5 +52,19 @@
 }
 
 .votes {
-  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  display: inline-block;
+}
+
+.upvote {
+  margin-left: 10px;
+  margin-right: 2px;
+}
+
+.upvote:hover,
+.downvote:hover {
+  cursor: pointer;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px black;
 }

@@ -4,6 +4,7 @@ import { postComment } from "../../../Utils/postComment";
 
 const AddComment = ({ id, setComments, comments }) => {
   const [commentData, setCommentData] = useState("");
+  const [snapshot, setSnapshot] = useState([]);
 
   const userContext = useContext(UserContext);
 
@@ -12,6 +13,7 @@ const AddComment = ({ id, setComments, comments }) => {
   };
 
   const onSubmitHandler = (event) => {
+    // setSnapshot(comments);
     event.preventDefault();
     setComments((curr) => [
       {
@@ -30,9 +32,7 @@ const AddComment = ({ id, setComments, comments }) => {
       () => {
         alert("That didn't quite work! Please try again");
         setComments((curr) => {
-          return curr.filter((comment) => {
-            return comment.comment_id != "123987";
-          });
+          return curr.slice(1);
         });
       }
     );

@@ -29,6 +29,7 @@ const AddComment = ({ id, setComments }) => {
     postComment({ username: userContext.user, comment: commentData }, id).catch(
       () => {
         alert("That didn't quite work! Please try again");
+        setCommentData((curr) => curr.shift());
       }
     );
   };

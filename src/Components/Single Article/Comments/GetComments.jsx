@@ -3,8 +3,7 @@ import getArticleComments from "../../../Utils/getArticleComments";
 import { ClimbingBoxLoader } from "react-spinners";
 import "./GetComments.css";
 
-const GetComments = (id) => {
-  const [comments, setComments] = useState([]);
+const GetComments = ({ comments, setComments, id }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -23,7 +22,8 @@ const GetComments = (id) => {
       {comments.map((comment) => {
         return (
           <li key={comment.comment_id} className="comment">
-            {comment.body}
+            <h3 className="author-name">{comment.author}:</h3>
+            <p className="comment-data">{comment.body}</p>
           </li>
         );
       })}

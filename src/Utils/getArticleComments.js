@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const getArticleComments = ({ id }) => {
+const getArticleComments = (id) => {
   return axios
     .get(
       `https://news-portfolio-project.onrender.com/api/articles/${id}/comments`

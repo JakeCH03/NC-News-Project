@@ -3,4 +3,9 @@
   text-align: left;
 }
 
+.author-name{
+  display: flex;
+  margin: auto;
+  padding-bottom: 5px;
+}
 

@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../Context/UserContext";
 import { postComment } from "../../../Utils/postComment";
 
-const AddComment = ({ id, setComments }) => {
+const AddComment = ({ id, setComments, comments }) => {
   const [commentData, setCommentData] = useState("");
 
   const userContext = useContext(UserContext);
@@ -18,7 +18,7 @@ const AddComment = ({ id, setComments }) => {
         article_id: id,
         author: userContext.user,
         body: commentData,
-        comment_id: curr.length + 1,
+        comment_id: "123987",
         created_at: new Date().toString(),
         votes: 0,
       },
@@ -29,7 +29,11 @@ const AddComment = ({ id, setComments }) => {
     postComment({ username: userContext.user, comment: commentData }, id).catch(
       () => {
         alert("That didn't quite work! Please try again");
-        setCommentData((curr) => curr.shift());
+        setComments((curr) => {
+          return curr.filter((comment) => {
+            return comment.comment_id != "123987";
+          });
+        });
       }
     );
   };

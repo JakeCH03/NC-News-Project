@@ -13,7 +13,11 @@ const DisplaySingleArticle = () => {
     <section className="content-wrapper">
       <SingleArticleCard id={id.article_id} />
       <h2 className="wrapper">Comments:</h2>
-      <AddComment id={id.article_id} setComments={setComments} />
+      <AddComment
+        id={id.article_id}
+        setComments={setComments}
+        comments={comments}
+      />
       <GetComments
         id={id.article_id}
         comments={comments}

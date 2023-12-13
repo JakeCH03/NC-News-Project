@@ -2,9 +2,8 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../Context/UserContext";
 import { postComment } from "../../../Utils/postComment";
 
-const AddComment = ({ id, setComments, comments }) => {
+const AddComment = ({ id, setComments }) => {
   const [commentData, setCommentData] = useState("");
-  const [snapshot, setSnapshot] = useState([]);
 
   const userContext = useContext(UserContext);
 

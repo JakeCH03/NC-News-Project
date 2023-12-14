@@ -39,6 +39,7 @@ const GetComments = ({
                 comment_id={comment.comment_id}
                 article_id={id}
                 setComments={setComments}
+                setIsLoading={setIsLoading}
               />
             )}
           </li>

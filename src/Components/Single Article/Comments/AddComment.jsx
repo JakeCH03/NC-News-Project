@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../../Context/UserContext";
 import { postComment } from "../../../Utils/postComment";
+import getArticleComments from "../../../Utils/getArticleComments";
 
 const AddComment = ({ id, setComments }) => {
   const [commentData, setCommentData] = useState("");
@@ -27,14 +28,19 @@ const AddComment = ({ id, setComments }) => {
       ...curr,
     ]);
 
-    postComment({ username: userContext.user, comment: commentData }, id).catch(
-      () => {
+    postComment({ username: userContext.user, comment: commentData }, id)
+      .then(() => {
+        return getArticleComments(id);
+      })
+      .then((res) => {
+        setComments(res.data.comments);
+      })
+      .catch(() => {
         alert("That didn't quite work! Please try again");
         setComments((curr) => {
           return curr.slice(1);
         });
-      }
-    );
+      });
   };
 
   return (

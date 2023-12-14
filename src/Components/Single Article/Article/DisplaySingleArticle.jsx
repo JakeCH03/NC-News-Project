@@ -7,6 +7,7 @@ import { useState } from "react";
 
 const DisplaySingleArticle = () => {
   const [comments, setComments] = useState([]);
+
   const id = useParams();
 
   return (

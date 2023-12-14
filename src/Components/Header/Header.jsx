@@ -13,6 +13,13 @@ const Header = () => {
       {!userContext.user
         ? "You are not currently logged in"
         : `You are logged in as ${userContext.user}`}
+      {!userContext.user ? (
+        <Link to="/login">
+          <button>Login</button>
+        </Link>
+      ) : (
+        ""
+      )}
     </header>
   );
 };

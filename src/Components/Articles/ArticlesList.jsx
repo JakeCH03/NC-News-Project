@@ -4,6 +4,7 @@ import "./ArticlesList.css";
 import ArticleCard from "./ArticlesCard";
 import { Link } from "react-router-dom";
 import { ClimbingBoxLoader } from "react-spinners";
+import DisplayTopics from "../Topics/DisplayTopics";
 
 const ArticlesList = () => {
   const [articleItems, setArticleItems] = useState([]);
@@ -24,19 +25,22 @@ const ArticlesList = () => {
     return <ClimbingBoxLoader className="spinner" />;
   } else {
     return (
-      <section className="articles">
-        {articleItems.map((article) => {
-          return (
-            <Link
-              className="link"
-              key={article.article_id}
-              to={`/article/${article.article_id}`}
-            >
-              <ArticleCard data={article} />
-            </Link>
-          );
-        })}
-      </section>
+      <>
+        <DisplayTopics />
+        <section className="articles">
+          {articleItems.map((article) => {
+            return (
+              <Link
+                className="link"
+                key={article.article_id}
+                to={`/article/${article.article_id}`}
+              >
+                <ArticleCard data={article} />
+              </Link>
+            );
+          })}
+        </section>
+      </>
     );
   }
 };

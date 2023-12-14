@@ -1,0 +1,11 @@
+.topics-list{
+    display: flex;
+    margin: auto;
+    width: 50%;
+    justify-content: space-evenly;
+}
+
+.topic-item{
+    padding: 10px;
+    padding-bottom: 0px;
+}

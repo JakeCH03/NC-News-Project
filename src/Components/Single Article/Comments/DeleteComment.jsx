@@ -1,33 +1,18 @@
 import deleteComment from "../../../Utils/deleteComment";
+import getArticleComments from "../../../Utils/getArticleComments";
 
-const DeleteHandler = ({
-  id,
-  setComments,
-  deletedComment,
-  setDeletedComment,
-}) => {
+const DeleteHandler = ({ article_id, comment_id, setComments }) => {
   const onClickHandler = () => {
     setComments((curr) => {
-    //   console.log(curr);
-      return curr.filter((comment, index) => {
-        if (comment.comment_id === id) {
-          setDeletedComment({ ...comment });
-        }
-        return comment.comment_id != id;
+      return curr.filter((comment) => {
+        return comment.comment_id != comment_id;
       });
     });
-    deleteComment(id).catch(() => {
+
+    deleteComment(comment_id).catch(() => {
       alert("That didn't quite work. Please try again!");
-      setComments((curr) => {
-        if (Object.keys(deletedComment).length) {
-          console.log(deletedComment);
-          return [deletedComment, ...curr];
-        } else {
-          return [
-            { body: "sorry, we lost your comment. Try refreshing" },
-            ...curr,
-          ];
-        }
+      getArticleComments(article_id).then((res) => {
+        setComments(res.data.comments);
       });
     });
   };

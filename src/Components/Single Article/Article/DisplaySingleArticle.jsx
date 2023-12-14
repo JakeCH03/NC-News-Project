@@ -7,7 +7,6 @@ import { useState } from "react";
 
 const DisplaySingleArticle = () => {
   const [comments, setComments] = useState([]);
-  const [deletedComment, setDeletedComment] = useState({});
 
   const id = useParams();
 
@@ -25,8 +24,6 @@ const DisplaySingleArticle = () => {
         comments={comments}
         setComments={setComments}
         className="comment-list"
-        deletedComment={deletedComment}
-        setDeletedComment={setDeletedComment}
       />
     </section>
   );

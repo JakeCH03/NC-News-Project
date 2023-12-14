@@ -36,10 +36,9 @@ const GetComments = ({
             <p className="comment-data">{comment.body}</p>
             {userContext.user === comment.author && (
               <DeleteHandler
-                id={comment.comment_id}
+                comment_id={comment.comment_id}
+                article_id={id}
                 setComments={setComments}
-                deletedComment={deletedComment}
-                setDeletedComment={setDeletedComment}
               />
             )}
           </li>
